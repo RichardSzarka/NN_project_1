@@ -40,6 +40,7 @@ def train(config=None):
             model.train()
             for input, ground_truth in dl_train:
                 input = input.to(device)
+                ground_truth = ground_truth.to(device)
                 output = model(input)
                 if not config.binary:
                     ground_truth = torch.argmax(ground_truth, dim=1)
@@ -57,11 +58,15 @@ def train(config=None):
                 model.eval()
                 for input, ground_truth in dl_valid:
                     input = input.to(device)
+                    ground_truth = ground_truth.to(device)
                     output = model(input)
                     if not config.binary:
                         ground_truth = torch.argmax(ground_truth, dim=1)
                     loss = criterion(output, ground_truth)
                     running_val_loss += loss.item()
+
+                    output = output.cpu()
+                    ground_truth = ground_truth.cpu()
 
                     eval_out = np.concatenate((eval_out, np.round(output.squeeze().numpy()).astype(int)
                                               if config.binary else
