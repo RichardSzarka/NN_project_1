@@ -2,18 +2,15 @@ from torch.utils.data import Dataset
 import numpy as np
 import pandas as pd
 import torch
-
+from sklearn.model_selection import train_test_split
 
 def init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False):
     df = pd.read_csv(path)
 
     if EDA:
         df = df.sample(frac=1).reset_index(drop=True)
-    else:
-        df = df.sample(frac=1, random_state=42).reset_index(drop=True)
 
-    train = df.iloc[:int(len(df) * 0.80), :]
-    valid = df.iloc[int(len(df) * 0.80):, :]
+    train, valid = train_test_split(df, test_size=0.2, random_state=30)
 
     if not EDA and balance and binary:
         class_1 = df[df['Class'] == 1]
@@ -68,3 +65,5 @@ class SteelDataset(Dataset):
             z_score_normalized = column
 
         return z_score_normalized
+
+init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False)
