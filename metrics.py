@@ -7,13 +7,13 @@ from sklearn.metrics import confusion_matrix
 def calculate_metrics(eval_out, eval_truth, args):
     acc = accuracy_score(eval_truth, eval_out)
     if not args.binary:
-        prec = precision_score(eval_truth, eval_out, average="weighted", zero_division=0)
-        recall = recall_score(eval_truth, eval_out, average="weighted", zero_division=0)
-        f1 = f1_score(eval_truth, eval_out, average="weighted", zero_division=0)
+        prec = precision_score(eval_truth, eval_out, average="macro", zero_division=0)
+        recall = recall_score(eval_truth, eval_out, average="macro", zero_division=0)
+        f1 = f1_score(eval_truth, eval_out, average="macro", zero_division=0)
     else:
         prec = precision_score(eval_truth, eval_out)
         recall = recall_score(eval_truth, eval_out)
-        f1 = f1_score(eval_truth, eval_out, average="weighted", zero_division=0)
+        f1 = f1_score(eval_truth, eval_out, zero_division=0)
 
     return acc, prec, recall, f1
 

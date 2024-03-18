@@ -4,6 +4,7 @@ import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
 
+
 def init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False):
     df = pd.read_csv(path)
 
@@ -65,5 +66,6 @@ class SteelDataset(Dataset):
             z_score_normalized = column
 
         return z_score_normalized
+
 
 init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False)
