@@ -34,11 +34,7 @@ for i in pbar:
 
     x_train, x_test, y_train, y_test = train.x, test.x, train.y, test.y
 
-
-    # Create a decision tree classifier
     tree_classifier = DecisionTreeClassifier(random_state=42)
-
-    # Fit the model to your data
     tree_classifier.fit(x_train, y_train)
 
     feature_importances = tree_classifier.feature_importances_
