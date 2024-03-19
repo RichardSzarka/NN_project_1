@@ -23,8 +23,8 @@ def init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False):
     # If not performing EDA, and balancing and binary classification are enabled,
     # balance the classes in the dataset
     if not EDA and balance and binary:
-        class_1 = df[df['Class'] == 1]
-        class_2 = df[df['Class'] == 2]
+        class_1 = train[train['Class'] == 1]
+        class_2 = train[train['Class'] == 2]
         n = len(class_2) - len(class_1)
         class_1 = class_1.sample(n=n + len(class_1), random_state=42)
 
@@ -93,4 +93,4 @@ class SteelDataset(Dataset):
         return z_score_normalized
 
 
-init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False)
+#init_datasets(path="dataset.csv", binary=False, EDA=False, balance=False)

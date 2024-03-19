@@ -25,7 +25,7 @@ def train(config=None):
         # Create dataset and dataloaders
         train, valid = init_datasets(binary=config.binary, balance=config.balance_binary)
         dl_train = DataLoader(train, batch_size=config.batch_size, shuffle=True)
-        dl_valid = DataLoader(valid, batch_size=config.batch_size, shuffle=True)
+        dl_valid = DataLoader(valid, batch_size=config.batch_size, shuffle=False)
 
         # Model setup
         device = torch.device(config.device)

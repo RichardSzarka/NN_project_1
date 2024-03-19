@@ -29,9 +29,9 @@ Precision: 0.7876106194690266
 Recall: 0.6267605633802817
 -----------
 binary batch norm balanced
-glowing-butterfly-43
-  5%|▍         | 483/10000 [01:39<32:47,  4.84it/s, best_loss=0.32, patience=1, train_loss=0.341, val_loss=0.385]
-Accuracy: 0.8380462724935732
-Precision: 0.7257142857142858
-Recall: 0.8943661971830986
+proud-monkey-49
+  4%|▎         | 371/10000 [01:10<30:29,  5.26it/s, best_loss=0.48, patience=1, train_loss=0.342, val_loss=0.506]
+Accuracy: 0.7480719794344473
+Precision: 0.6392405063291139
+Recall: 0.7112676056338029
 -----------

@@ -8,7 +8,7 @@ class Parameters(BaseModel):
     epochs: int = 10000
     batch_size: int = 32
     binary: bool = True
-    balance_binary: bool = True
+    balance_binary: bool = False
     batch_norm: bool = True
     patience: int = 150
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
