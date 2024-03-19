@@ -20,8 +20,8 @@ def calculate_metrics(eval_out, eval_truth, args):
         recall = recall_score(eval_truth, eval_out, average="macro", zero_division=0)
         f1 = f1_score(eval_truth, eval_out, average="macro", zero_division=0)
     else:
-        prec = precision_score(eval_truth, eval_out)
-        recall = recall_score(eval_truth, eval_out)
+        prec = precision_score(eval_truth, eval_out, zero_division=0)
+        recall = recall_score(eval_truth, eval_out, zero_division=0)
         f1 = f1_score(eval_truth, eval_out, zero_division=0)
 
     return acc, prec, recall, f1

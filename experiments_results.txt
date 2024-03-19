@@ -1,0 +1,37 @@
+-----------
+multiclass batch norm
+rural-wave-34
+  7%|▋         | 733/10000 [03:16<41:23,  3.73it/s, best_loss=0.585, patience=1, train_loss=0.427, val_loss=0.836]
+Accuracy: 0.7660668380462725
+Precision: 0.7960353271463412
+Recall: 0.8093610029840571
+
+-----------
+multiclass
+hardy-sea-35
+  8%|▊         | 811/10000 [03:25<38:43,  3.96it/s, best_loss=0.691, patience=1, train_loss=0.458, val_loss=0.745]
+Accuracy: 0.7223650385604113
+Precision: 0.7593524141916755
+Recall: 0.7533511203674289
+-----------
+binary
+ethereal-sponge-37
+  5%|▌         | 517/10000 [01:52<34:23,  4.59it/s, best_loss=0.457, patience=1, train_loss=0.308, val_loss=0.496]
+Accuracy: 0.7917737789203085
+Precision: 0.7606837606837606
+Recall: 0.6267605633802817
+-----------
+binary batch norm
+likely-dew
+  3%|▎         | 318/10000 [01:13<37:27,  4.31it/s, best_loss=0.415, patience=1, train_loss=0.307, val_loss=0.441]
+Accuracy: 0.8020565552699229
+Precision: 0.7876106194690266
+Recall: 0.6267605633802817
+-----------
+binary batch norm balanced
+glowing-butterfly-43
+  5%|▍         | 483/10000 [01:39<32:47,  4.84it/s, best_loss=0.32, patience=1, train_loss=0.341, val_loss=0.385]
+Accuracy: 0.8380462724935732
+Precision: 0.7257142857142858
+Recall: 0.8943661971830986
+-----------
