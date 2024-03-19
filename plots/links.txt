@@ -1,0 +1,3 @@
+https://api.wandb.ai/links/r-szarka/uoiclrgf - binary
+https://api.wandb.ai/links/r-szarka/ou5z1ct2 - multiclass
+https://api.wandb.ai/links/r-szarka/q5gr5cww - sweep
