@@ -7,16 +7,21 @@ from tqdm import tqdm
 import seaborn as sns
 from matplotlib import pyplot as plt
 
+# Loading and preprocessing the dataset
 df = pd.read_csv("dataset.csv")
-df["Class"] = df["Class"] - 1
+df["Class"] = df["Class"] - 1  # Adjusting class labels from 1|2 to 0|1
+
+# Selecting specific columns and computing correlation matrix
 selected_columns = ['V28', 'V29', 'V30', 'V31', 'V32', 'V33', 'Class']
 correlation_matrix = df.corr()[selected_columns]
 
+# Visualizing the correlation matrix using heatmap
 plt.figure(figsize=(12, 10))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", annot_kws={"size": 12})
 plt.title('Correlation Heatmap')
 plt.show()
 
+# Counting and visualizing the frequency of each class
 count = df.iloc[:, -7:].sum()
 count.plot(kind='bar', color='skyblue')
 plt.title('Class Counts')
@@ -25,10 +30,11 @@ plt.ylabel('Count')
 plt.show()
 
 
-importance_arr = []
+importance_arr = []  # Array to store feature importances
 
 pbar = tqdm(range(1, 2001))
 
+# Loop for computing feature importance using Decision Tree Classifier
 for i in pbar:
     train, test = init_datasets(binary=True, EDA=True)
 
@@ -45,12 +51,14 @@ for i in pbar:
 
     importance_arr = np.concatenate((importance_arr, top_features))
 
-
+# Counting occurrences of each feature in the feature importance aarray
 value_counts = Counter(importance_arr)
 values, counts = zip(*value_counts.items())
 data = {"Value": values, "Count": counts}
 df = pd.DataFrame(data)
 df = df.sort_values(by="Count", ascending=False)
+
+# Visualizing the importance of each feature
 plt.figure(figsize=(10, 6))
 sns.lineplot(x="Value", y="Count", data=df)
 plt.axvline(x=df.iloc[12]["Value"], color='r', linestyle='--', label='Index 3')
@@ -58,4 +66,6 @@ plt.xlabel("Value")
 plt.ylabel("Count")
 plt.title("How important is the feature")
 plt.show()
+
+# Top 13 important features (lucky magic number)
 print(df.head(13)['Value'].values)
